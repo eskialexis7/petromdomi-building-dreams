@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { BeforeAfter } from "@/components/BeforeAfter";
@@ -10,25 +11,16 @@ import p2a from "@/assets/project2-after.jpg";
 import p3b from "@/assets/project3-before.jpg";
 import p3a from "@/assets/project3-after.jpg";
 
-export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Έργα Πριν & Μετά — PETRODOMI" },
-      { name: "description", content: "Δείτε τη μεταμόρφωση: φωτογραφίες έργων μας πριν και μετά την κατασκευή/ανακαίνιση." },
-      { property: "og:title", content: "Έργα Πριν & Μετά — PETRODOMI" },
-      { property: "og:description", content: "Πραγματικά έργα. Πραγματικά αποτελέσματα." },
-    ],
-  }),
-  component: ProjectsPage,
-});
-
 const projects = [
   { before: p1b, after: p1a, title: "Πέτρινη Κατοικία", location: "Πελοπόννησος", desc: "Πλήρης αποκατάσταση παραδοσιακής κατοικίας, διατηρώντας τον αυθεντικό χαρακτήρα." },
   { before: p2b, after: p2a, title: "Ανακαίνιση Κουζίνας", location: "Αθήνα — Κηφισιά", desc: "Ολική ανανέωση με μάρμαρο, δρύινα ντουλάπια και χρυσές πινελιές." },
   { before: p3b, after: p3a, title: "Master Bathroom", location: "Αθήνα — Γλυφάδα", desc: "Από τα γυμνά τσιμέντα σε ένα spa-like κατάλυμα με μάρμαρο και brass." },
 ];
 
-function ProjectsPage() {
+export default function ProjectsPage() {
+  useEffect(() => {
+    document.title = "Έργα Πριν & Μετά — PETRODOMI";
+  }, []);
   return (
     <div>
       <SiteHeader />

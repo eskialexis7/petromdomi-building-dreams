@@ -1,19 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HardHat, Hammer, Ruler, Shield, Paintbrush, Wrench, Layers, Home, ArrowRight } from "lucide-react";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Υπηρεσίες — PETRODOMI" },
-      { name: "description", content: "Νέες κατασκευές, ανακαινίσεις, μονώσεις, σοβάδες, υδραυλικά, ηλεκτρολογικά. Πλήρες πακέτο εργολαβίας." },
-      { property: "og:title", content: "Υπηρεσίες PETRODOMI" },
-      { property: "og:description", content: "Όλες οι υπηρεσίες μας για κάθε στάδιο της κατασκευής." },
-    ],
-  }),
-  component: ServicesPage,
-});
 
 const services = [
   { icon: HardHat, title: "Νέες Κατασκευές", desc: "Πλήρης ανέγερση κατοικιών και επαγγελματικών χώρων με το κλειδί στο χέρι, από εκσκαφή μέχρι παράδοση." },
@@ -26,7 +15,10 @@ const services = [
   { icon: Shield, title: "Συντήρηση Ακινήτων", desc: "Συντήρηση και επισκευές για διαρκή ασφάλεια του ακινήτου σας." },
 ];
 
-function ServicesPage() {
+export default function ServicesPage() {
+  useEffect(() => {
+    document.title = "Υπηρεσίες — PETRODOMI";
+  }, []);
   return (
     <div>
       <SiteHeader />

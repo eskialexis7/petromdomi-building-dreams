@@ -1,12 +1,12 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { to: "/", label: "Αρχική" },
-  { to: "/services", label: "Υπηρεσίες" },
-  { to: "/projects", label: "Έργα" },
-  { to: "/contact", label: "Επικοινωνία" },
+  { to: "/", label: "Αρχική", end: true },
+  { to: "/services", label: "Υπηρεσίες", end: false },
+  { to: "/projects", label: "Έργα", end: false },
+  { to: "/contact", label: "Επικοινωνία", end: false },
 ] as const;
 
 export function SiteHeader() {
@@ -21,15 +21,18 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              className="text-sm font-medium uppercase tracking-wider text-primary-foreground/90 transition-colors hover:text-accent"
-              activeProps={{ className: "text-accent" }}
-              activeOptions={{ exact: l.to === "/" }}
+              end={l.end}
+              className={({ isActive }) =>
+                `text-sm font-medium uppercase tracking-wider transition-colors hover:text-accent ${
+                  isActive ? "text-accent" : "text-primary-foreground/90"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
           <Link
             to="/contact"
