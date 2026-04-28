@@ -6,7 +6,7 @@ import path from "path";
 // Static SPA build for GitHub Pages.
 // Repository name: petrodomi -> base path '/petrodomi-building-dreams/'.
 export default defineConfig({
-  base: "/petrodomi-building-dreams/",
+  base: "/petromdomi-building-dreams/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
