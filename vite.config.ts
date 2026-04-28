@@ -4,9 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 // Static SPA build for GitHub Pages.
-// Repository name: petrodomi -> base path '/petrodomi/'.
+// Repository name: petrodomi -> base path '/petrodomi-building-dreams/'.
 export default defineConfig({
-  base: "/petrodomi/",
+  base: "/petrodomi-building-dreams/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
