@@ -1,22 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Επικοινωνία & Δωρεάν Προσφορά — PETRODOMI" },
-      { name: "description", content: "Συμπληρώστε τη φόρμα και θα σας καλέσουμε εντός 24 ωρών για δωρεάν εκτίμηση και προσφορά." },
-      { property: "og:title", content: "Δωρεάν Προσφορά — PETRODOMI" },
-      { property: "og:description", content: "Επικοινωνία με την ομάδα μας. Σας καλούμε εντός 24 ωρών." },
-    ],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactPage() {
+  useEffect(() => {
+    document.title = "Επικοινωνία & Δωρεάν Προσφορά — PETRODOMI";
+  }, []);
   return (
     <div>
       <SiteHeader />

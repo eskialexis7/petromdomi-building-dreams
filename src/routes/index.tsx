@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Hammer, HardHat, Ruler, Shield, Award, Clock } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,17 +11,12 @@ import p1a from "@/assets/project1-after.jpg";
 import p2b from "@/assets/project2-before.jpg";
 import p2a from "@/assets/project2-after.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "PETRODOMI — Εργολαβικές Κατασκευές & Ανακαινίσεις" },
-      { name: "description", content: "Κατασκευές κατοικιών, ανακαινίσεις, μονώσεις. 25+ χρόνια εμπειρίας. Δωρεάν προσφορά." },
-      { property: "og:title", content: "PETRODOMI — Εργολαβικές Κατασκευές" },
-      { property: "og:description", content: "Χτίζουμε με μεράκι. Δωρεάν προσφορά για το έργο σας." },
-    ],
-  }),
-  component: HomePage,
-});
+export default function HomePage() {
+  useEffect(() => {
+    document.title = "PETRODOMI — Εργολαβικές Κατασκευές & Ανακαινίσεις";
+  }, []);
+  return <HomePageInner />;
+}
 
 const services = [
   { icon: HardHat, title: "Νέες Κατασκευές", desc: "Από τα θεμέλια μέχρι το κλειδί στο χέρι." },
@@ -34,7 +30,7 @@ const stats = [
   { num: "100%", label: "Ικανοποίηση πελατών" },
 ];
 
-function HomePage() {
+function HomePageInner() {
   return (
     <div>
       <SiteHeader />
